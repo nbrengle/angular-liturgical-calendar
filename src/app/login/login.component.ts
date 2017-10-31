@@ -15,7 +15,7 @@ import { Component, OnInit } from '@angular/core';
             <input type="text" placeholder="Password">
         </div>
     </div>
-    <two-button green="Submit" grey="Cancel"></two-button>
+    <two-button green="Login" grey="Forgot Password"></two-button>
   </form>
   `
 })
