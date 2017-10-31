@@ -1,10 +1,10 @@
 export class Message{
-    sender: string;
+    senderId: string;
     text: string;
     timestamp: Date;
 
-    constructor( sender: string, text: string) {
-        this.sender = sender;
+    constructor( senderId: string, text: string) {
+        this.senderId = senderId;
         this.text = text;
         this.timestamp = new Date();
     }

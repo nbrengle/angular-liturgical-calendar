@@ -1,24 +1,41 @@
 <div class="ui container">
-    <div class="ui container">
-        <button class="ui right floated red button">
-          <i class="window close icon"></i>
-        </button>
-        <!--  Loop through all the messages -->
-        <div *ngFor="let message of Messages">
-            <!--  If they're from me, they float right and are blue-->
-            <div *ngIf="message.sender == user;then mine else theirs">
-                <ng-template #mine class="ui blue right floated segment">
-                    {{ message.text }}
-                </ng-template>
-                <ng-template #theirs class="ui segment">
-                    {{ message.text }}
-                </ng-template>
+    <div class="ui grid">
+        <div class="eight column row">
+            <div class="right floated column">
+                <button class="ui red button">
+                  <i class="window close icon"></i>
+                </button>
             </div>
+        </div>
+        <!--  Loop through all the messages -->
+        <div class="row" *ngFor="let message of messages">
+            <!--  If they're from me, they float right and are blue-->
+            <div
+                *ngIf="message.senderId == loggedInUserId;
+                then mine;
+                else theirs"
+            > </div>
+            <ng-template #mine>
+                <div class="right floated twelve wide column">
+                    <div class="ui blue inverted right floated right aligned compact segment">
+                        <p> {{ message.text }} </p>
+                    </div>
+                </div>
+            </ng-template>
             <!--  If they're from bot, they sit left-->
+            <ng-template #theirs>
+                <div class="twelve wide column">
+                    <div class="ui compact segment">
+                        {{ message.text }}
+                    </div>
+                </div>
+            </ng-template>
         </div>
     </div>
-    <div class="ui action input">
-        <input type="text" placeholder="Your Message...">
-        <button class="ui green button">Send</button>
-    </div>
+        <div class="ui bottom attached action input">
+            <input type="text" placeholder="Your Message..." #new_message >
+            <button class="ui green button"
+                    (click)="postMessage(new_message)"
+            >Send</button>
+        </div>
 </div>

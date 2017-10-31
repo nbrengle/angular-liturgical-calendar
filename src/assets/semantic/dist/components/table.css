@@ -719,10 +719,10 @@
 
 /* Pink */
 .ui.pink.table {
-  border-top: 0.2em solid #E03997;
+  border-top: 0.2em solid #FF1493;
 }
 .ui.inverted.pink.table {
-  background-color: #E03997 !important;
+  background-color: #FF1493 !important;
   color: #FFFFFF !important;
 }
 

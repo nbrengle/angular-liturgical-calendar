@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'nav-bar',
   template: `
-  <nav class="ui secondary menu">
+  <div class="ui secondary menu">
     <a  class="item"
         routerLink="/search"
         routerLinkActive="active"
@@ -22,7 +22,7 @@ import { Component, OnInit } from '@angular/core';
             routerLinkActive="active"
         > Login </a>
     </div>
-  </nav>
+  </div>
   `
 })
 export class NavBarComponent implements OnInit {
