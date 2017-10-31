@@ -1,4 +1,17 @@
 # AngularMiscComponents
+FIRST NAME : Nathaniel  
+LAST NAME : Brengle  
+GITHUB URL : https://github.com/nbrengle/angular-misc-components  
+TODAY'S DATE : 31 October 2017
+CSC 436  
+HOMEWORK : #7  
+COMPLEXITY:    
+APPROX HOURS INVESTED IN ASSIGNMENT :   
+EXPECTED GRADE :   
+PARTICIPATION SOURCE CODE :   
+
+APPLICATION INTENT :  
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
