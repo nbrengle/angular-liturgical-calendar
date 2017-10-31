@@ -9,14 +9,16 @@ import { Component, OnInit } from '@angular/core';
     <div class="fields">
         <div class="field">
             <label>Username/Email</label>
-            <input type="text" placeholder="Username/Email">
+            <input #username type="text" placeholder="Username/Email">
         </div>
         <div class="field">
             <label>Password</label>
-            <input type="text" placeholder="Password">
+            <input #password type="text" placeholder="Password">
         </div>
     </div>
-    <two-button green="Login" grey="Forgot Password"></two-button>
+    <two-button green="Login" (click)="loginAttempt(username, password)"
+                grey="Forgot Password" (click)="forgotPassword()"
+    ></two-button>
   </form>
   </div>
   `
@@ -24,6 +26,9 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   constructor() { }
+
+  loginAttempt(username:HTMLInputElement, password:HTMLInputElement) { console.log("pis"); }
+  forgotPassword() { console.log("I forgot!"); }
 
   ngOnInit() {
   }

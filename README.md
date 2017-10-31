@@ -5,13 +5,18 @@ GITHUB URL : https://github.com/nbrengle/angular-misc-components
 TODAY'S DATE : 31 October 2017
 CSC 436  
 HOMEWORK : #7  
-COMPLEXITY:    
-APPROX HOURS INVESTED IN ASSIGNMENT :   
-EXPECTED GRADE :   
+COMPLEXITY: Medium    
+APPROX HOURS INVESTED IN ASSIGNMENT : 6  
+EXPECTED GRADE : B  
 PARTICIPATION SOURCE CODE :   
 
 APPLICATION INTENT :  
-
+Using Semantic UI this is the beginnings of a set of generic components
+There are some notable flaws at present:  
+* the two-button component doesn't take functions  
+* the login component doesn't have any wired functionality, really
+* the chat-box is a bit bulbous and stays will grow to fill a page  
+The natural extension from this point is to add some kind of users service to handle users throughout the app which will make it easier to extend the functionality of the login page to include errors.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
