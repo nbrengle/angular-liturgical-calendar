@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'nav-bar',
   template: `
   <nav class="ui secondary menu">
-    <a  class="active item"
+    <a  class="item"
         routerLink="/search"
         routerLinkActive="active"
     > Home </a>

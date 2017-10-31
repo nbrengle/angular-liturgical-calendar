@@ -1,3 +1,24 @@
-<p>
-  chat-box works!
-</p>
+<div class="ui container">
+    <div class="ui container">
+        <button class="ui right floated red button">
+          <i class="window close icon"></i>
+        </button>
+        <!--  Loop through all the messages -->
+        <div *ngFor="let message of Messages">
+            <!--  If they're from me, they float right and are blue-->
+            <div *ngIf="message.sender == user;then mine else theirs">
+                <ng-template #mine class="ui blue right floated segment">
+                    {{ message.text }}
+                </ng-template>
+                <ng-template #theirs class="ui segment">
+                    {{ message.text }}
+                </ng-template>
+            </div>
+            <!--  If they're from bot, they sit left-->
+        </div>
+    </div>
+    <div class="ui action input">
+        <input type="text" placeholder="Your Message...">
+        <button class="ui green button">Send</button>
+    </div>
+</div>

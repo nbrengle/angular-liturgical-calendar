@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Message } from './message.model';
 
 @Component({
-  selector: 'app-chat-box',
+  selector: 'chat-box',
   templateUrl: './chat-box.component.html',
-  styleUrls: ['./chat-box.component.css']
 })
 export class ChatBoxComponent implements OnInit {
+
+  Messages: Array<Message>;
 
   constructor() { }
 

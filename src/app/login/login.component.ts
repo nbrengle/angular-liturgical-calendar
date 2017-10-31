@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'login',
   template: `
+  <div class="ui container">
   <form class="ui form">
     <h4 class="ui diving header">Login</h4>
     <div class="fields">
@@ -17,6 +18,7 @@ import { Component, OnInit } from '@angular/core';
     </div>
     <two-button green="Login" grey="Forgot Password"></two-button>
   </form>
+  </div>
   `
 })
 export class LoginComponent implements OnInit {
