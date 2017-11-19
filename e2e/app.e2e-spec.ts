@@ -1,10 +1,10 @@
-import { AngularMiscComponentsPage } from './app.po';
+import { LitugricalCalendarPage } from './app.po';
 
 describe('angular-liturgical-calendar App', () => {
-  let page: AngularMiscComponentsPage;
+  let page: LiturgicalCalendarPage;
 
   beforeEach(() => {
-    page = new AngularMiscComponentsPage();
+    page = new LiturgicalCalendarPage();
   });
 
   it('should display message saying app works', () => {

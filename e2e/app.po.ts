@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class AngularMiscComponentsPage {
+export class LiturgicalCalendarPage {
   navigateTo() {
     return browser.get('/');
   }
