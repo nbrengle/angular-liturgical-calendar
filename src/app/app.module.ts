@@ -11,28 +11,38 @@ import {
 } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { TwoButtonComponent } from './two-button/two-button.component';
 import { LoginComponent } from './login/login.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ChatBoxComponent } from './chat-box/chat-box.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { DayCardComponent } from './day-card/day-card.component';
+import { CardContainerComponent } from './card-container/card-container.component';
+
+import { AccountService } from './services/account.service';
+import { AnalyticsService } from './services/analytics.service';
+import { AvatarService } from './services/avatar.service';
+import { LiturgicalCalendarService } from './services/liturgical-calendar.service';
+
 
 const routes: Routes = [
-    { path: '', component: HomeComponent, pathMatch: 'full' },
+    { path: '', component: LoginComponent, pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'settings', redirectTo: '' },
     { path: 'dashboard', redirectTo: '' },
     { path: '**', redirectTo: '' }
-]
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     TwoButtonComponent,
     LoginComponent,
     NavBarComponent,
-    ChatBoxComponent
+    ChatBoxComponent,
+    ProfilePageComponent,
+    DayCardComponent,
+    CardContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +54,12 @@ const routes: Routes = [
         { enableTracing: true }
     )
   ],
-  providers: [],
+  providers: [
+    AccountService,
+    AnalyticsService,
+    AvatarService,
+    LiturgicalCalendarService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
