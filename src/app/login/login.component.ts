@@ -1,34 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators
+} from '@angular/forms';
+import { AbstractControl } from '@angular/forms/src/model';
 
 @Component({
-  selector: 'login',
-  template: `
-  <div class="ui container">
-  <form class="ui form">
-    <h4 class="ui diving header">Login</h4>
-    <div class="fields">
-        <div class="field">
-            <label>Username/Email</label>
-            <input #username type="text" placeholder="Username/Email">
-        </div>
-        <div class="field">
-            <label>Password</label>
-            <input #password type="text" placeholder="Password">
-        </div>
-    </div>
-    <two-button green="Login" (click)="loginAttempt(username, password)"
-                grey="Forgot Password" (click)="forgotPassword()"
-    ></two-button>
-  </form>
-  </div>
-  `
+  selector: 'app-login-form',
+  templateUrl: './login.component.html',
 })
 export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
+  username: AbstractControl;
+  password: AbstractControl;
 
-  constructor() { }
+  constructor(fb: FormBuilder) {
+    this.loginForm = fb.group({
+      'username' : ['', Validators.required],
+      'password' : ['', Validators.required],
+    });
 
-  loginAttempt(username:HTMLInputElement, password:HTMLInputElement) { console.log("pis"); }
-  forgotPassword() { console.log("I forgot!"); }
+    this.username = this.loginForm.controls['username'];
+    this.password = this.loginForm.controls['password'];
+  }
+
+  handleButtonPress(loginPressed: boolean) {
+    loginPressed ? this.attemptLogin() : this.forgotPassword();
+  }
+
+  attemptLogin() {
+    console.log('pis');
+  }
+
+  forgotPassword() { console.log('I forgot!'); }
 
   ngOnInit() {
   }

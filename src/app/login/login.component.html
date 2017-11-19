@@ -1,0 +1,45 @@
+<div class="ui container">
+  <form
+    [formGroup]="loginForm"
+    class="ui form"
+  >
+    <h4 class="ui diving header">Login</h4>
+    <div class="fields">
+        <div class="field">
+            <label for="usernameInput">Username/Email</label>
+            <input
+              type="text"
+              id="usernameInput"
+              placeholder="Username/Email"
+              [formControl]="loginForm.controls['username']"
+              >
+        </div>
+        <div class="field">
+            <label for="passwordInput">Password</label>
+            <input
+              type="password"
+              id="passwordInput"
+              placeholder="Password"
+              [formControl]="loginForm.controls['password']"
+            >
+        </div>
+    </div>
+    <app-two-button
+      green="Login"
+      grey="Forgot Password"
+      (onButtonPress)="handleButtonPress($event)"
+    ></app-two-button>
+  </form>
+  <div
+    *ngIf="!loginForm.valid"
+    class="ui error message"
+  >Username and/or Password is Invalid</div>
+  <div
+    *ngIf="username.hasError('required')"
+    class="ui error message"
+  >Username/Email is required</div>
+  <div
+    *ngIf="password.hasError('required')"
+    class="ui error message"
+  >Password is required</div>
+</div>

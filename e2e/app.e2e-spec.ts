@@ -1,6 +1,6 @@
 import { AngularMiscComponentsPage } from './app.po';
 
-describe('angular-misc-components App', () => {
+describe('angular-liturgical-calendar App', () => {
   let page: AngularMiscComponentsPage;
 
   beforeEach(() => {
