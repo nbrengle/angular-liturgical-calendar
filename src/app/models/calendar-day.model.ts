@@ -1,14 +1,14 @@
 import { Celebration } from './celebration.model';
 
 export class CalendarDay {
-  date: string;
+  date: Date;
   season: string;
   season_week: number;
   celebrations: Array<Celebration>;
   weekday: string;
 
   constructor(
-    date: string,
+    date: Date,
     season: string,
     season_week: number,
     celebrations: Array<Celebration>,

@@ -12,14 +12,14 @@ import { Celebration } from '../models/celebration.model';
   template: `
   <div class="ui card">
     <div class="content">
-      Date: {{ calends.date }}
+      Date: {{ cleanDate(calends.date) }}
       Season: {{ calends.season }}
       Season Week: {{ calends.season_week }}
       Weekday: {{ calends.weekday }}
     </div>
     <div
       *ngFor="let celebration of calends.celebrations"
-      class="{{ celebration.colour }}"
+      class="{{ celebration.colour }} content"
     >
       {{ celebration.title }} : {{ celebration.rank }}, {{ celebration.rank_number }}
     </div>
@@ -33,6 +33,10 @@ export class DayCardComponent implements OnInit {
 
   ngOnInit() {
     console.log(typeof this.calends);
+  }
+
+  cleanDate(dateIn: Date): string {
+    return dateIn.toISOString().split('T')[0];
   }
 
 }

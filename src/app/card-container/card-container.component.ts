@@ -30,7 +30,7 @@ export class CardContainerComponent implements OnInit {
   }
 
   loadDays(date: Date): Observable<CalendarDay> {
-    return this._liturgicalCalendarService.getLiturgicalMonth(date);
+    return this._liturgicalCalendarService.getLiturgicalWeek(date);
   }
 
 }
