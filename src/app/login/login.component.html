@@ -31,7 +31,7 @@
     ></app-two-button>
   </form>
   <div
-    *ngIf="!loginForm.valid"
+    *ngIf="!success && loginAttempted"
     class="ui error message"
   >Username and/or Password is Invalid</div>
   <div
@@ -39,7 +39,7 @@
     class="ui error message"
   >Username/Email is required</div>
   <div
-    *ngIf="password.hasError('required') && username.dirty"
+    *ngIf="password.hasError('required') && password.dirty"
     class="ui error message"
   >Password is required</div>
 </div>

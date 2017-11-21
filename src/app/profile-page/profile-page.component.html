@@ -1,3 +1,59 @@
-<p>
-  profile-page works!
-</p>
+<div class="ui container">
+  <form
+    [formGroup]="profileForm"
+    class="ui form"
+  >
+    <h4 class="ui diving header">Login</h4>
+    <div class="fields">
+        <div class="field">
+            <label for="usernameInput">Username/Email</label>
+            <input
+              type="text"
+              id="usernameInput"
+              placeholder="Username/Email"
+              formControlName="username"
+              >
+        </div>
+        <div class="field">
+            <label for="passwordInput">Password</label>
+            <input
+              type="password"
+              id="passwordInput"
+              placeholder="Password"
+              formControlName="password"
+            >
+        </div>
+        <div class="field">
+          <label for="firstNameInput">First Name</label>
+          <input
+            type="text"
+            id="firstNameInput"
+            placeholder="First Name"
+            formControlName="firstname"
+            >
+      </div>
+      <div class="field">
+        <label for="lastNameInput">Last Name</label>
+        <input
+          type="text"
+          id="lastNameInput"
+          placeholder="Last Name"
+          formControlName="lastname"
+          >
+      </div>
+      <div class="field">
+        <label for="profileImageInput">Profile Image Url</label>
+        <input
+          type="text"
+          id="profileImageInput"
+          placeholder="Profile Image URL"
+          formControlName="profileImageUrl"
+          >
+      </div>
+    </div>
+    <app-two-button
+      green="Update Profile"
+      grey="Reset"
+      (onButtonPress)="handleButtonPress($event)"
+    ></app-two-button>
+  </form>

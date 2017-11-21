@@ -1,5 +1,6 @@
 import {
   Component,
+  OnInit,
 } from '@angular/core';
 import {
   FormBuilder,
@@ -9,16 +10,16 @@ import {
 import { AbstractControl } from '@angular/forms/src/model';
 import { AccountService } from '../services/account.service';
 import { UserAuth } from '../models/user-auth.model';
-
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login.component.html',
 })
-
-
-export class LoginComponent {
-
+export class LoginComponent implements OnInit {
+  success: boolean;
+  loginAttempted: boolean;
+  returnUrl: string;
   loginForm: FormGroup;
   username: AbstractControl;
   password: AbstractControl;
@@ -26,6 +27,8 @@ export class LoginComponent {
   constructor(
     private _fb: FormBuilder,
     private _accountService: AccountService,
+    private _route: ActivatedRoute,
+    private _router: Router,
   ) {
     this.loginForm = _fb.group({
       'username' : ['', Validators.required],
@@ -34,21 +37,29 @@ export class LoginComponent {
 
     this.username = this.loginForm.controls['username'];
     this.password = this.loginForm.controls['password'];
+
+    this.loginAttempted = false;
   }
 
   handleButtonPress(loginPressed: boolean) {
     loginPressed ? this.attemptLogin() : this.forgotPassword();
   }
 
-  attemptLogin(): boolean {
+  attemptLogin(): void {
     console.log('Login Attempted');
     const userAttempt = new UserAuth(this.loginForm.value.username,
                                      this.loginForm.value.password
-                                    )
-    return this._accountService.attemptLogin(userAttempt);
+                                    );
+    this.success = this._accountService.attemptLogin(userAttempt);
+    this.loginAttempted = true;
+    if (this.success === true) {
+      this._router.navigateByUrl(this.returnUrl);
     }
   }
 
-  forgotPassword() { console.log('I forgot!'); }
+  forgotPassword(): void { console.log('I forgot!'); }
 
+  ngOnInit() {
+    this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
+  }
 }
