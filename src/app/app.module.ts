@@ -24,12 +24,12 @@ import { AnalyticsService } from './services/analytics.service';
 import { AvatarService } from './services/avatar.service';
 import { LiturgicalCalendarService } from './services/liturgical-calendar.service';
 
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-    { path: '', component: CardContainerComponent, pathMatch: 'full' },
+    { path: '', component: CardContainerComponent, pathMatch: 'full', canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
-    { path: 'settings', redirectTo: '' },
-    { path: 'dashboard', redirectTo: '' },
+    { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard] },
     { path: '**', redirectTo: '' }
 ];
 
@@ -59,6 +59,7 @@ const routes: Routes = [
     AnalyticsService,
     AvatarService,
     LiturgicalCalendarService,
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })

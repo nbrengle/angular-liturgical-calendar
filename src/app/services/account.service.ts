@@ -5,4 +5,7 @@ export class AccountService {
 
   constructor() { }
 
+  isLoggedIn(): boolean {
+    return true; // for now
+  }
 }
