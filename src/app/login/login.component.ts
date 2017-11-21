@@ -1,22 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   Validators
 } from '@angular/forms';
 import { AbstractControl } from '@angular/forms/src/model';
+import { AccountService } from '../services/account.service';
+import { UserAuth } from '../models/user-auth.model';
+
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login.component.html',
 })
-export class LoginComponent implements OnInit {
+
+
+export class LoginComponent {
+
   loginForm: FormGroup;
   username: AbstractControl;
   password: AbstractControl;
 
-  constructor(fb: FormBuilder) {
-    this.loginForm = fb.group({
+  constructor(
+    private _fb: FormBuilder,
+    private _accountService: AccountService,
+  ) {
+    this.loginForm = _fb.group({
       'username' : ['', Validators.required],
       'password' : ['', Validators.required],
     });
@@ -29,13 +40,15 @@ export class LoginComponent implements OnInit {
     loginPressed ? this.attemptLogin() : this.forgotPassword();
   }
 
-  attemptLogin() {
-    console.log('pis');
+  attemptLogin(): boolean {
+    console.log('Login Attempted');
+    const userAttempt = new UserAuth(this.loginForm.value.username,
+                                     this.loginForm.value.password
+                                    )
+    return this._accountService.attemptLogin(userAttempt);
+    }
   }
 
   forgotPassword() { console.log('I forgot!'); }
-
-  ngOnInit() {
-  }
 
 }
