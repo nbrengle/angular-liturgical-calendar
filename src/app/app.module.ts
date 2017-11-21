@@ -26,7 +26,7 @@ import { LiturgicalCalendarService } from './services/liturgical-calendar.servic
 
 
 const routes: Routes = [
-    { path: '', component: LoginComponent, pathMatch: 'full' },
+    { path: '', component: CardContainerComponent, pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'settings', redirectTo: '' },
     { path: 'dashboard', redirectTo: '' },
