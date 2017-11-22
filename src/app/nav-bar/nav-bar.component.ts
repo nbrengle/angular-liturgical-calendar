@@ -9,13 +9,9 @@ import { Component, OnInit } from '@angular/core';
         routerLinkActive="active"
     > Home </a>
     <a  class="item"
-        routerLink="settings"
+        routerLink="profile"
         routerLinkActive="active"
-    > Settings </a>
-    <a  class="item"
-        routerLink="/dashboard"
-        routerLinkActive="active"
-    > Dashboard </a>
+    > Profile </a>
     <div class="right menu">
         <a  class="item"
             routerLink="/login"

@@ -9,6 +9,7 @@ import {
   RouterModule,
   Routes
 } from '@angular/router';
+import { GoogleAnalyticsModule, GA_TOKEN } from 'angular-ga';
 
 import { AppComponent } from './app.component';
 import { TwoButtonComponent } from './two-button/two-button.component';
@@ -49,6 +50,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    GoogleAnalyticsModule.forRoot(),
     RouterModule.forRoot(
         routes,
         { enableTracing: true }

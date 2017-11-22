@@ -10,7 +10,12 @@ import {
 import { AbstractControl } from '@angular/forms/src/model';
 import { AccountService } from '../services/account.service';
 import { UserAuth } from '../models/user-auth.model';
-import { Router, ActivatedRoute } from '@angular/router';
+import {
+  Router,
+  ActivatedRoute,
+  NavigationEnd,
+} from '@angular/router';
+import { GoogleAnalyticsService } from 'angular-ga';
 
 @Component({
   selector: 'app-login-form',
@@ -29,6 +34,7 @@ export class LoginComponent implements OnInit {
     private _accountService: AccountService,
     private _route: ActivatedRoute,
     private _router: Router,
+    private _gaService: GoogleAnalyticsService
   ) {
     this.loginForm = _fb.group({
       'username' : ['', Validators.required],
@@ -52,6 +58,10 @@ export class LoginComponent implements OnInit {
                                     );
     this.success = this._accountService.attemptLogin(userAttempt);
     this.loginAttempted = true;
+    this._gaService.event.emit({
+      category: 'account',
+      action: 'login'
+    });
     if (this.success === true) {
       this._router.navigateByUrl(this.returnUrl);
     }

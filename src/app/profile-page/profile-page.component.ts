@@ -24,6 +24,7 @@ export class ProfilePageComponent implements OnInit {
     private _fb: FormBuilder,
     private _accountService: AccountService
   ) {
+    this.currentUser = this._accountService.getCurrentUser();
     // TODO these could-should be separate functions
     this.profileForm = _fb.group({
       'username' : ['', Validators.required],
@@ -31,14 +32,6 @@ export class ProfilePageComponent implements OnInit {
       'firstname' : ['', Validators.required],
       'lastname' : ['', Validators.required],
       'profileImageUrl' : ['', Validators.required],
-    });
-    this.currentUser = this._accountService.currentUser;
-    this.profileForm.setValue({
-      'username' : this.currentUser.userAuth.username,
-      'password' : this.currentUser.userAuth.password,
-      'firstname' : this.currentUser.firstName,
-      'lastname' : this.currentUser.lastName,
-      'profileImageUrl' : this.currentUser.profileImage,
     });
   }
 
@@ -66,6 +59,13 @@ export class ProfilePageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.profileForm.setValue({
+      'username' : this.currentUser.userAuth.username,
+      'password' : this.currentUser.userAuth.password,
+      'firstname' : this.currentUser.firstName,
+      'lastname' : this.currentUser.lastName,
+      'profileImageUrl' : this.currentUser.profileImage,
+    });
   }
 
 }

@@ -30,11 +30,13 @@ export class AccountService {
   }
 
   findUserFromAuth(auth: UserAuth): User {
+    console.log(auth.username)
     return this.userAccounts.find(user => user.userAuth === auth);
   }
 
   getJustAuths(): UserAuth[] {
     let authsOut = new Array<UserAuth>();
+    // I don't work, which means I break profiles
     this.userAccounts.forEach(user => authsOut.push(user.userAuth));
     return authsOut;
   }
@@ -49,6 +51,7 @@ export class AccountService {
       });
     if (flag) {
       this.currentUser = this.findUserFromAuth(user);
+      console.log(this.currentUser);
       this.loggedIn = true;
     }
     return flag;
@@ -61,6 +64,10 @@ export class AccountService {
       flag = userToUpdate.updateToMatch(user);
     }
     return flag;
+  }
+
+  getCurrentUser(): User {
+    return this.currentUser;
   }
 
 }
