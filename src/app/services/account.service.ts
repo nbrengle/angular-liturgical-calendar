@@ -30,8 +30,9 @@ export class AccountService {
   }
 
   findUserFromAuth(auth: UserAuth): User {
-    console.log(auth.username)
-    return this.userAccounts.find(user => user.userAuth === auth);
+    console.log(auth.username);
+    return this.userAccounts.find(account => (account.userAuth.username === auth.username
+                                           && account.userAuth.password === auth.password));
   }
 
   getJustAuths(): UserAuth[] {
@@ -51,7 +52,7 @@ export class AccountService {
       });
     if (flag) {
       this.currentUser = this.findUserFromAuth(user);
-      console.log(this.currentUser);
+      console.log(this.currentUser.firstName);
       this.loggedIn = true;
     }
     return flag;

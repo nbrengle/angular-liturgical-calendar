@@ -21,8 +21,6 @@ import { DayCardComponent } from './day-card/day-card.component';
 import { CardContainerComponent } from './card-container/card-container.component';
 
 import { AccountService } from './services/account.service';
-import { AnalyticsService } from './services/analytics.service';
-import { AvatarService } from './services/avatar.service';
 import { LiturgicalCalendarService } from './services/liturgical-calendar.service';
 
 import { AuthGuard } from './guards/auth.guard';
@@ -57,9 +55,8 @@ const routes: Routes = [
     )
   ],
   providers: [
+    { provide: GA_TOKEN, useValue: 'UA-TOKEN-1' },
     AccountService,
-    AnalyticsService,
-    AvatarService,
     LiturgicalCalendarService,
     AuthGuard,
   ],
