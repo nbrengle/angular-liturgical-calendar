@@ -6,12 +6,14 @@ TODAY'S DATE : 18 November 2017
 CSC 436  
 FINAL PROJECT  
 COMPLEXITY: Medium    
-APPROX HOURS INVESTED IN ASSIGNMENT :   
-EXPECTED GRADE :   
-PARTICIPATION SOURCE CODE :   
+APPROX HOURS INVESTED IN ASSIGNMENT : 30  
+EXPECTED GRADE : B-  
 
 APPLICATION INTENT :  
-
+Test user: 'test', Password: 'password'  
+Pieces of the Chatbot exists but is not really implemented  
+Persistence doesn't quite come together for profiles  
+And the summary page is not well styled  
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 

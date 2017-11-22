@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Message } from './message.model';
 
 @Component({
-  selector: 'chat-box',
+  selector: 'app-chat-box',
   templateUrl: './chat-box.component.html',
 })
 export class ChatBoxComponent implements OnInit {
